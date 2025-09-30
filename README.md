@@ -31,8 +31,6 @@ A tiny desktop app that lists the **countries where it’s currently 5 PM** (“
 * [Repository layout](#repository-layout)
 * [Troubleshooting](#troubleshooting)
 * [Limitations & Notes](#limitations--notes)
-* [Contributing](#contributing)
-* [License](#license)
 
 ---
 
