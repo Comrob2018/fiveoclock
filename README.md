@@ -7,7 +7,6 @@ A tiny desktop app that lists the **countries where it’s currently 5 PM** (“
 * 🔔 **Bottom toast:** a subtle, fading **“Last updated …”** notification (local time + UTC).
 * 🌐 **Time logic:** walks all IANA time zones and maps them to countries via `pytz`.
 
-> Uses `datetime.now(timezone.utc)` (per your preference) and **PyQt6** for the UI.
 
 ---
 
@@ -219,15 +218,3 @@ Thumbs.db
 * “5 o’clock” means **any minute** during the 17:00 hour (5:00–5:59). If you want *exactly* 5:00, we can add a toggle to require `minute == 0`.
 * Timezone data and country mappings are provided by **pytz**; unusual/alias zones may behave differently.
 * The app currently focuses on **5 PM**. (A 5 AM toggle can be re‑added easily.)
-
-## Contributing
-
-PRs welcome! Keep code style consistent, avoid blocking operations on the UI thread, and prefer `datetime.now(timezone.utc)` for UTC.
-
-## License
-
-Choose one you prefer (e.g., **MIT**). Example:
-
-```
-MIT License © 2025 Your Name
-```
