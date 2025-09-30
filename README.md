@@ -47,24 +47,9 @@ A tiny desktop app that lists the **countries where it’s currently 5 PM** (“
 
 ## Screenshot
 
-> *(Add your own image here once you run it)*
 
-```
-It’s 5 O’Clock in:
+<img width="632" height="316" alt="image" src="https://github.com/user-attachments/assets/67b1bba4-26cf-4632-876f-7593ac91351e" />
 
-ARGENTINA
-CAMEROON
-GHANA
-ICELAND
-MOROCCO
-…
-```
-
-If you save a screenshot to `docs/screenshot.png`, you can reference it like:
-
-```md
-![Five O’Clock Somewhere — screenshot](docs/screenshot.png)
-```
 
 ## Requirements
 
