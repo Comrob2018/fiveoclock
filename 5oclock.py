@@ -145,8 +145,9 @@ class FiveOClockBoard(QWidget):
         actions_menu.addAction(act_refresh)
 
         # Header
-        self.header_label = QLabel("<div style='font-size:26px; font-weight:700;'>It\'s 5 O\'Clock in:</div>")
+        self.header_label = QLabel("<div style='font-size:30px; font-weight:800; letter-spacing:1px;'>🌴&nbsp;&nbsp;It\'s 5 O\'Clock in:&nbsp;&nbsp;🌴</div>")
         self.header_label.setTextFormat(Qt.TextFormat.RichText)
+        self.header_label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
 
         # Board list (countries only)
         self.board = QListWidget()
@@ -192,16 +193,24 @@ class FiveOClockBoard(QWidget):
             self.toast.reposition()
 
     def apply_style(self):
-        # App-wide style for a simple airport/rail split-flap feel (no boxes)
+        # App-wide style with a single solid background color and simple list styling.
+        # We target the root widget by objectName for reliable background rendering.
+        self.setObjectName("root")
         self.setStyleSheet(
             """
-            QWidget { background-color: #0b0e10; color: #e6ebef; }
-            QMenuBar { background-color: #0b0e10; border: none; }
+            QWidget#root {
+                background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0,
+                stop:0 #E9D59C,
+                stop:0.5 #64B8B1,
+                stop:1 #22BED9);
+                color: #256940; 
+            }
+            QMenuBar { background: transparent; border: none; color: #256940; }
             QMenuBar::item { padding: 6px 10px; }
-            QLabel { color: #e6ebef; }
+            QLabel { color: #256940; }
 
-            QListWidget { border: none; background: #0b0e10; }
-            QListWidget::item { background: transparent; border: none; padding: 2px 0; margin: 0; }
+            QListWidget { border: none; background: transparent; color: #256940; }
+            QListWidget::item { background: transparent; border: none; padding: 2px 0; margin: 0;}
             QListWidget::item:selected { background: transparent; }
             """
         )
@@ -236,8 +245,8 @@ class FiveOClockBoard(QWidget):
         utc_now = datetime.now(timezone.utc)
         local_tz = local_now.tzname()
         msg = (
-            f"Last updated: {local_now.strftime('%Y-%m-%d %H:%M:%S')} {local_tz}  |  "
-            f"{utc_now.strftime('%Y-%m-%d %H:%M:%S')} UTC "
+            f"Last updated: {local_now.strftime('%Y-%m-%d %H:%M:%S')} {local_tz} · "
+            f"UTC {utc_now.strftime('%Y-%m-%d %H:%M:%S')}"
         )
         self.toast.show_message(msg)
 
